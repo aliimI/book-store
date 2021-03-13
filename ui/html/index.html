@@ -1,0 +1,74 @@
+{{ define "style" }}
+<style>
+   tr:nth-of-type(odd) { background-color:#ccc; }
+</style>
+{{ end }}
+
+
+<!-- include base template -->
+{{ template "base" }}
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <style>
+        .table {
+            width: 70%;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            border: solid burlywood 5px;
+            border-radius: 7px;
+        }
+        body{
+            background-image: url("https://img.freepik.com/free-vector/white-abstract-background_23-2148810113.jpg?size=626&ext=jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            height: 100%;
+        }
+        a:visited {
+            color: green;
+        }
+        nav{
+            text-align: center;
+        }
+
+    </style>
+</head>
+<nav class="navbar navbar-light bg-light">
+    <h3>Book Store</h3>
+</nav>
+<body>
+<table class="table">
+    <tr>
+        <th >ISBN</th>
+        <th >Title</th>
+        <th >Author</th>
+        <th >Price</th>
+    </tr>
+</table>
+
+<table class="table">
+{{range .}}
+
+    <tr>
+
+        <td> <a href="/books/show?isbn={{.Isbn}}">{{.Isbn}}</a> </td>
+
+        <td> {{.Title}} </td>
+
+        <td> {{.Author}} </td>
+
+        <td> {{.Price}} </td>
+        <td> <a href="/books/delete_book?isbn={{.Isbn}}" style="margin-left: 10%; border: red solid 2px; border-radius: 5px; padding: 3px">Del</a> </td>
+    </tr>
+
+
+{{end}}
+</table>
+<br>
+
+<a href="/books/create_book" style="margin-left: 10%; border: burlywood solid 2px; border-radius: 5px; padding: 3px">Add Book</a>
+</body>
+</html>
+

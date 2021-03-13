@@ -1,0 +1,36 @@
+{{ define "style" }}{{ end }}
+
+{{ template "base" }}
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <style>
+        body{
+            background-image: url("https://img.freepik.com/free-vector/white-abstract-background_23-2148810113.jpg?size=626&ext=jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            height: 100%;
+        }
+
+    </style>
+</head>
+<nav class="navbar navbar-light bg-light">
+    <h3>Add new Book</h3>
+</nav>
+
+<form action="/books/create_book" method="post">
+   <table >
+    <tr><td align="right">ISBN:<input type="text" name="isbn"> </td></tr>
+    <tr><td align="right">Title:<input type="text" name="title"> </td></tr>
+    <tr><td align="right">Author:<input type="text" name="author"> </td></tr>
+    <tr><td align="right">Price:<input type="text" name="price"> </td></tr>
+    <tr><td>
+    <br>
+    <input type="submit" value="Add"> &nbsp; <a href="/books">Cancel</a></td>
+    </tr>
+   </table>
+</form>
+
+</body>
+</html>
